@@ -1,0 +1,80 @@
+ //-->> Basic Implementation Of Linked List in java.
+public class P1 {
+	public static void insertAtEnd(Node a, int val) {
+		Node temp = new Node(val);
+		Node t = a;
+		while(t.next!=null) {
+			t = t.next;
+		}
+		t.next = temp;
+	}
+	public static void displayr(Node a) {
+		Node temp = a;
+		if(temp==null) {
+			return;
+		}
+		displayr(a.next);
+		System.out.print(temp.data+" ");
+	}
+	public static void display(Node a) {
+		Node temp = a;
+		while(temp!=null) {
+			System.out.print(temp.data+" ");
+			temp = temp.next;
+		}
+	}
+	public static int length(Node a) {
+		int count = 0;
+		while(a!=null) {
+			count++;
+			a = a.next;
+		}
+		return count;
+	}
+	public static class Node{
+		int data;
+		Node next;
+		Node(int data){
+			this.data = data;
+		}
+	}
+	public static void main(String[] args) {
+//		Node x = new Node();
+//		System.out.println(x.data);
+//		System.out.println(x.next);
+		Node a = new Node(2);
+		Node b = new Node(3);
+		Node c = new Node(4);
+		Node d = new Node(5);
+		
+		a.next = b;
+		b.next = c;
+		c.next = d;
+		
+//		System.out.println(a.data);
+//		System.out.println(a.next.data);
+//		System.out.println(a.next.next.data);
+//		System.out.println(a.next.next.next.data);
+		
+//		Node temp = a;
+//		for(int i=1;i<=4;i++) {
+//			System.out.print(temp.data);
+//			temp = temp.next;
+//		}
+		
+//		Node temp = a;
+//		while(temp!=null) {
+//			System.out.print(temp.data+" ");		
+//			temp = temp.next;
+//		}
+		
+		// Call a method using function call
+		display(a);
+		System.out.println();
+		displayr(a);
+		System.out.println();
+		System.out.println(length(a));
+		insertAtEnd(a,87); // Passing head and value those we have to insert in the linked list
+		display(a); 
+	}
+}
